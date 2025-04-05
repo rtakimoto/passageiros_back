@@ -9,7 +9,7 @@ class PassageiroSchema(BaseModel):
     """ Define como um novo passageiro a ser inserido deve ser representado
     """
     nome: str = "Joao da Silva"
-    cpf: int = 43334543726
+    cpf: str = "433.345.437-26"
     peso: float = 72.50
 
 
@@ -17,14 +17,14 @@ class PassageiroUpdateSchema(BaseModel):
     """ Define como um passageiro a ser atualizado deve ser representado
     """
     nome: str = "Joao da Silva"
-    cpf: int = 43334543726
+    cpf: str = "433.345.437-26"
     peso: float = 72.50
 
 class PassageiroBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no nome do passageiro.
     """
-    cpf: int = 43334543726
+    cpf: str = "433.345.437-26"
 
 
 class ListagemPassageirosSchema(BaseModel):
@@ -53,7 +53,7 @@ class PassageiroViewSchema(BaseModel):
     """
     id: int = 1
     nome: str = "Joao da Silva"
-    cpf: int = 43334543726
+    cpf: str = "433.345.437-26"
     peso: float = 72.50
     total_contatos: int = 1
     contatos:List[ContatoSchema]
