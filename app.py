@@ -124,10 +124,10 @@ def update_passageiro(form: PassageiroUpdateSchema):
     # criando conexão com a base
     session = Session()
     # fazendo a atualizacao
-    count = session.query(Passageiro).filter(Passageiro.id == passageiro_cpf).update({'nome': passageiro_nome, 'cpf': passageiro_cpf, 'flight': passageiro_flight})
+    count = session.query(Passageiro).filter(Passageiro.id == passageiro_id).update({'nome': passageiro_nome, 'cpf': passageiro_cpf, 'flight': passageiro_flight})
     session.commit()
     # fazendo a busca
-    passageiro = session.query(passageiro).filter(Passageiro.id == passageiro_id).first()
+    passageiro = session.query(Passageiro).filter(Passageiro.id == passageiro_id).first()
 
     if count:
         # retorna a representação da mensagem de confirmação
