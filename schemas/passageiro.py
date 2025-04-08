@@ -10,15 +10,16 @@ class PassageiroSchema(BaseModel):
     """
     nome: str = "Joao da Silva"
     cpf: str = "433.345.437-26"
-    peso: float = 72.50
+    flight: str = "TAM-1234"
 
 
 class PassageiroUpdateSchema(BaseModel):
     """ Define como um passageiro a ser atualizado deve ser representado
     """
+    id: int = 1
     nome: str = "Joao da Silva"
     cpf: str = "433.345.437-26"
-    peso: float = 72.50
+    flight: str = "TAM-1234"
 
 class PassageiroBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
@@ -42,7 +43,7 @@ def apresenta_passageiros(passageiros: List[Passageiro]):
         result.append({
             "nome": passageiro.nome,
             "cpf": passageiro.cpf,
-            "peso": passageiro.peso,
+            "flight": passageiro.flight,
         })
 
     return {"passageiros": result}
@@ -54,7 +55,7 @@ class PassageiroViewSchema(BaseModel):
     id: int = 1
     nome: str = "Joao da Silva"
     cpf: str = "433.345.437-26"
-    peso: float = 72.50
+    flight: str = "TAM-1234"
     total_contatos: int = 1
     contatos:List[ContatoSchema]
 
@@ -83,7 +84,7 @@ def apresenta_passageiro(passageiro: Passageiro):
         "id": passageiro.id,
         "nome": passageiro.nome,
         "cpf": passageiro.cpf,
-        "peso": passageiro.peso,
+        "flight": passageiro.flight,
         "total_contatos": len(passageiro.contatos),
         "contatos": contatos
     }
