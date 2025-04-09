@@ -31,7 +31,7 @@ class PassageiroBuscaSchema(BaseModel):
 class ListagemPassageirosSchema(BaseModel):
     """ Define como uma listagem de passageiro será retornada.
     """
-    passageiros:List[PassageiroSchema]
+    passageiros:List[PassageiroUpdateSchema]
 
 
 def apresenta_passageiros(passageiros: List[Passageiro]):
@@ -41,6 +41,7 @@ def apresenta_passageiros(passageiros: List[Passageiro]):
     result = []
     for passageiro in passageiros:
         result.append({
+            "id": passageiro.id,
             "nome": passageiro.nome,
             "cpf": passageiro.cpf,
             "flight": passageiro.flight,

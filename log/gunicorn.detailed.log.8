@@ -1,0 +1,62 @@
+[2025-04-08 19:34:14,840] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:14] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:16,544] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:16] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:16,553] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:16] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:16,793] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:16] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:16,858] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:16] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:17,230] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:17] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:34:39,644] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:34:39] "POST /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:35:31,402] ERROR log_exception() L875  Exception on /passageiro [PUT] - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py L875 
+Traceback (most recent call last):
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask_openapi3/scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/takimoto/MVP/passageiros/passageiros_back/app.py", line 130, in update_passageiro
+    passageiro = session.query(passageiro).filter(Passageiro.id == passageiro_id).first()
+                               ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'passageiro' where it is not associated with a value
+[2025-04-08 19:35:31,407] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:35:31] "[35m[1mPUT /passageiro HTTP/1.1[0m" 500 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:36:27,542] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:36:27,542] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:36:40,103] WARNING update_passageiro() L139  Erro ao atualizar passageiro #'1', Passageiro não encontrado na base :/ - call_trace=/home/takimoto/MVP/passageiros/passageiros_back/app.py L139 
+[2025-04-08 19:36:40,104] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:36:40] "[33mPUT /passageiro HTTP/1.1[0m" 404 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:39:08,088] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:39:08,088] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:39:11,998] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:39:11] "PUT /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:16,888] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:16] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:21,131] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:21] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:22,516] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:22] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:23,197] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:23] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:23,844] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:23] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:24,343] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:24] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:24,948] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:24] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:25,313] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:25] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:25,591] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:25] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:26,044] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:26] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:52:26,425] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:52:26] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:54:13,429] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:54:13] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:55:20,130] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:55:20] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:55:20,956] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:55:20] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:55:21,579] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:55:21] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:55:21,949] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:55:21] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-08 19:57:25,192] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 19:57:25] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
