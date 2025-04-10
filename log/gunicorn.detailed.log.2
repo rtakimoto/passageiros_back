@@ -1,4 +1,4 @@
-[2025-04-08 20:20:27,562] ERROR log_exception() L875  Exception on /passageiros [GET] - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py L875 
+[2025-04-09 13:00:15,670] ERROR log_exception() L875  Exception on /passageiro [POST] - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py L875 
 Traceback (most recent call last):
   File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -18,71 +18,49 @@ Traceback (most recent call last):
   File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/flask_openapi3/scaffold.py", line 117, in view_func
     response = func(**func_kwargs)
                ^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/passageiros_back/app.py", line 75, in get_passageiros
-    passageiros = session.query(Passageiro).all()
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2704, in all
-    return self._iter().all()  # type: ignore
-           ^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2858, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-                                                  ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2365, in execute
-    return self._execute_internal(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2241, in _execute_internal
-    conn = self._connection_for_bind(bind)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2110, in _connection_for_bind
-    return trans._connection_for_bind(engine, execution_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<string>", line 2, in _connection_for_bind
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1189, in _connection_for_bind
-    conn = bind.connect()
-           ^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3274, in connect
-    return self._connection_cls(self)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
-    return self.pool.connect()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
-    return _ConnectionFairy._checkout(self)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 713, in checkout
-    rec = pool._do_get()
-          ^^^^^^^^^^^^^^
-  File "/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 168, in _do_get
-    raise exc.TimeoutError(
-sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
-[2025-04-08 20:20:27,564] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:20:27] "[35m[1mGET /passageiros HTTP/1.1[0m" 500 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:22,180] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "/home/takimoto/MVP/passageiros/passageiros_back/app.py", line 36, in add_passageiro
+    logger.debug(f"Adicionando passageiro de nome e cpf: '{passageiro.nome}', '{passageiro.cpf}'")
+                                                           ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'passageiro' where it is not associated with a value
+[2025-04-09 13:00:15,677] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 13:00:15] "[35m[1mPOST /passageiro HTTP/1.1[0m" 500 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:03:35,041] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:22,180] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,046] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,063] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,307] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,374] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,714] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:25,729] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:25] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:31,141] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:31] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:21:35,666] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:21:35] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:22:06,706] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:22:06] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:22:43,696] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:22:43] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:22:44,933] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:22:44] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:22:45,347] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:22:45] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:22:45,653] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:22:45] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:23:00,229] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:23:00] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:23:01,183] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:23:01] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
-[2025-04-08 20:23:01,629] INFO _log() L97   127.0.0.1 - - [08/Apr/2025 20:23:01] "GET /passageiros HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:03:35,041] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:03:40,461] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 13:03:40] "OPTIONS /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:03:40,522] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 13:03:40] "POST /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:04:01,366] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 13:04:01] "OPTIONS /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 13:04:01,401] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 13:04:01] "PUT /passageiro HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 18:51:42,368] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 18:51:42] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 18:51:51,684] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 18:51:51] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 18:51:52,002] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 18:51:52] "GET /openapi/ HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:42,059] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:42,060] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:46,920] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:46] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:46,933] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:46] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:47,168] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:47] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:47,232] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:47] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:47,633] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:47] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:06:47,665] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:06:47] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:51,145] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:51,145] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:56,346] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:56] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:56,362] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:56] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:56,598] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:56] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:56,659] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:56] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:57,089] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:57] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:13:57,109] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:13:57] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:14:59,659] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.201.6:5000 - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:14:59,660] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:15:04,818] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:15:04] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
+[2025-04-09 19:15:04,832] INFO _log() L97   127.0.0.1 - - [09/Apr/2025 19:15:04] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/takimoto/MVP/passageiros/env_passageiros/lib/python3.12/site-packages/werkzeug/_internal.py L97  
