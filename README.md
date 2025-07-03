@@ -1,6 +1,6 @@
 # Minha API
 
-O objetivo é criar um MVP para o cadastro e edição de passageiros para um voo.
+O objetivo é criar um MVP para o cadastro, visualização e edição de passageiros para um voo.
 
 ---
 ## Como executar 
